@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
     *{
-    text-align: center;
+      box-sizing: border-box;
+      text-align: center;
     }
-       #map {
-         border: 10px solid black;
-        margin-left: 100px;
-        height: 400px;
-        width: 80%;
-       }
+    body{
+      background-color: black;
+      color: white;
+      margin:0px;
+      text-shadow: 1px 1px grey;
+
+    }
+    #map {
+      text-shadow: 0px 0px white; /*map and satellite switch button*/
+      box-shadow: 0px 0px 5px 3px grey;
+      border: 1px solid;
+      margin: 20px auto;
+      height: 500px;
+      width: 85%;
+    }
+    @media screen and (max-width:400px){
+      #map{
+          width: 100%;
+         }
+      }
     </style>
   </head>
   <body>
-    <h3>My Google Maps</h3>
-    <h5>~Prateek</h5>
+    <h1>Google Maps</h1>
+    <h3>Prateek</h3>
     <div id="date"></div>
     <div id='time'></div>
     <div id="map"></div>
@@ -28,10 +44,16 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB33PB87_lLQKC6YQj86GEv4-XVlIY7fxU&callback=initMap">
     </script>
     <script>
-    var d = new Date();
-    var t = d.getTime();
-    document.getElementById('date').innerHTML=d;
-    document.getElementById('time').innerHTML=t;
+    function updateTime(){
+      var d = new Date();
+      // var t = d.getTime();
+      var h = d.getHours();
+      var m = d.getMinutes();
+      var s = d.getSeconds();
+      document.getElementById('date').innerHTML=d;
+      // document.getElementById('time').innerHTML=h+" : "+m+" : "+s;
+    }
+    setInterval(updateTime, 1);
     </script>
 
 <H2> Whatsapp API </H2>
